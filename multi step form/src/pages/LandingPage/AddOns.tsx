@@ -18,15 +18,16 @@ interface Props{
     label:keyof checkOnProps
     feature: string
     price: string
-
+    formData: formDataProps
+    setFormData: (data: formDataProps) => void
 }
 
 
 export default function AddOns(props:Props){
-    const{name,feature,price, label} = props
+    const{name,feature,price, label, formData} = props
 
     const handleCheck = () =>{
-        console.log(label)
+        const newFormData = {...formData}
     }
  
     return(

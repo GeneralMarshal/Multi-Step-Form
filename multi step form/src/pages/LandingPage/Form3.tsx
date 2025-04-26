@@ -7,7 +7,16 @@ interface formDataProps{
     phone: string
     plan: string
     addOns: string
+    checkOns: checkOnProps
+
 }
+
+interface checkOnProps{
+    onlineService: boolean
+    largerStorage: boolean
+    customizableProfile: boolean
+}
+
 
 interface Props{
     formData: formDataProps

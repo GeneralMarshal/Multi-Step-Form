@@ -19,11 +19,7 @@ export default function LandingPage(){
         phone:"",
         plan: "",
         addOns:"",
-        checkOns:{
-            onlineService: false,
-            largerStorage: false,
-            customizableProfile: false,
-        }
+        
     })
     const [formData, setFormData] = useState({
         name:"",
@@ -31,6 +27,11 @@ export default function LandingPage(){
         phone:"",
         plan: "",
         addOns:"",
+        checkOns:{
+            onlineService: false,
+            largerStorage: false,
+            customizableProfile: false,
+        }
 
     })
     const [isYearly, setIsYearly] = useState(false)
