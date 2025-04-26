@@ -16,8 +16,8 @@ interface errorsProps{
 }
 interface Props{
     errors: errorsProps
-    formData: formDataProps
-    setFormData: (data: formDataProps) => void
+    formData: TotalFormData
+    setFormData: React.Dispatch<React.SetStateAction<TotalFormData>>
 }
 
 
