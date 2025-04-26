@@ -19,8 +19,8 @@ interface checkOnProps{
 
 
 interface Props{
-    formData: formDataProps
-    setFormData: (data: formDataProps) => void
+    formData: TotalFormData
+    setFormData: React.Dispatch<React.SetStateAction<TotalFormData>>
 }
 
 export default function Form3({formData, setFormData}: Props){

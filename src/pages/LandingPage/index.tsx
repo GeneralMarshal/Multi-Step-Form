@@ -21,12 +21,14 @@ export default function LandingPage(){
         addOns:"",
         
     })
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<TotalFormData>({
         name:"",
         email:"",
         phone:"",
-        plan: "",
-        addOns:"",
+        plan: "arcade",
+        planTime: "monthly",
+        addOns: [],
+        addOnsTime: "monthly",
         checkOns:{
             onlineService: false,
             largerStorage: false,
@@ -41,20 +43,28 @@ export default function LandingPage(){
     
     }
     const validate = () => {
-        let errorObject = {...errors}
-        !formData.name ? errorObject.name = "This field is required" : errorObject.name = "";
-        !formData.email ? errorObject.email = "This field is required" : errorObject.email = "";
-        !formData.phone ? errorObject.phone = "This field is required" : errorObject.phone = "";
-        !formData.plan ? errorObject.plan = "Please select a plan" : errorObject.plan = "";
+        const errorObject = {...errors}
+        errorObject.name = !formData.name ? "This field is required" : "";
+        errorObject.email = !formData.email ? "This field is required" : "";
+        errorObject.phone = !formData.phone ? "This field is required" : "";
+        errorObject.plan = !formData.plan ? "Please select a plan" : "";
         
         setErrors(errorObject)
 
         if (currentStep === 1){
         setErrors(errorObject);
-            !errorObject.name && !errorObject.email && !errorObject.phone ? setCurrentStep(currentStep + 1) : setErrors(errorObject);
+            if(!errorObject.name && !errorObject.email && !errorObject.phone){ 
+                setCurrentStep(currentStep + 1) 
+            }else{ 
+                setErrors(errorObject); 
+            }
         };
         if (currentStep === 2){
-            !errorObject.plan ? setCurrentStep(currentStep + 1) : setErrors(errorObject)
+            if(!errorObject.plan){ 
+                setCurrentStep(currentStep + 1) 
+            }else{
+                setErrors(errorObject)
+            } 
         }
         
 

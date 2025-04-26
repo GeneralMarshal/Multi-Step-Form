@@ -18,12 +18,13 @@ interface errorsProps{
     plan: string
     addOns: string
 }
+
 interface Props{
     errors: errorsProps
-    formData: formDataProps
+    formData: TotalFormData
     isYearly: boolean
     setIsYearly: (data: boolean) => void
-    setFormData: (data: formDataProps) => void
+    setFormData: React.Dispatch<React.SetStateAction<TotalFormData>>
 }
 
 export default function Form2({formData,setFormData,errors, isYearly, setIsYearly}:Props){
