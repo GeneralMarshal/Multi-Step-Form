@@ -1,3 +1,12 @@
+interface formDataProps{
+    name: string
+    email: string
+    phone: string
+    plan: string
+    addOns: string
+    checkOns: checkOnProps
+}
+
 interface checkOnProps{
     onlineService: boolean
     largerStorage: boolean
@@ -14,10 +23,10 @@ interface Props{
 
 
 export default function AddOns(props:Props){
-    const{name,feature,price,  label} = props
+    const{name,feature,price, label} = props
 
     const handleCheck = () =>{
-        
+        console.log(label)
     }
  
     return(
