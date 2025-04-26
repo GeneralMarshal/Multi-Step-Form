@@ -1,12 +1,16 @@
-export default function VerticalSteps(){
-    const stepsArray = ["your info", "select plan", "add-ons", "summary"]
+interface Props{
+    stepArray: string[]
+}
+
+export default function VerticalSteps({stepArray}:Props){
+    
 
     return(
         <div className="flex flex-col gap-8 p-12">
             {
-                stepsArray.map((step,index) => {
+                stepArray.map((step,index) => {
                     return(
-                        <div className="relative flex gap-4">
+                        <div key={index} className="relative flex gap-4">
                             <span className=" w-10 h-10 flex items-center justify-center rounded-[50%] border border-[#ffffff] bg-transparent text-lg font-semibold text-[#ffffff]">
                                 {index + 1}
                             </span>

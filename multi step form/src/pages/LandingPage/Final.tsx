@@ -34,14 +34,7 @@ export default function Final(){
                 <span className="text-sm text-[#9699ab]" >Total (per month)</span>
                 <span className=" text-lg font-bold text-blue-800">+$12/mo</span>
             </span>
-            <span className="absolute bottom-0 flex w-full justify-between">
-                <Button stylesClass="py-4 px-6 font-semibold  text-[#9699ab] rounded-md cursor-pointer" >
-                    Go Back
-                </Button>
-                <Button stylesClass="py-4 px-6 font-semibold bg-[#000080] text-[#ffffff] rounded-md cursor-pointer" >
-                    Confirm
-                </Button>
-            </span>
+            
         </div>
     )
 }

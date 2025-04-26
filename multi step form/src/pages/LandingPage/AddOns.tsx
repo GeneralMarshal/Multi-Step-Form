@@ -1,15 +1,32 @@
+interface checkOnProps{
+    onlineService: boolean
+    largerStorage: boolean
+    customizableProfile: boolean
+}
+
 interface Props{
     name: string
+    label:keyof checkOnProps
     feature: string
     price: string
+
 }
 
 
 export default function AddOns(props:Props){
-    const{name,feature,price} = props
+    const{name,feature,price,  label} = props
+
+    const handleCheck = () =>{
+        
+    }
+ 
     return(
          <div className=" flex items-center border gap-4 border-blue-900 rounded-lg p-4 justify-start">
-            <input className=" w-4 h-4" type="checkbox" />
+            <input 
+                className=" w-4 h-4" 
+                type="checkbox" 
+                onChange={(e)=>{handleCheck()}}
+            />
             <span className=" flex flex-col">
                 <span className=" text-[#000080] font-semibold">
                     {name}
