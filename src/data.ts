@@ -1,40 +1,41 @@
+
 export const cardData = [
     {
-        name: "Arcade",
+        name: "arcade",
         icon: "/icons/icon-arcade.svg",
-        pricePerMonth: "$9/mo",
-        pricePerYear: "$90/yr"
+        pricePerMonth: 9,
+        pricePerYear: 90
     },
     {
-        name: "Advanced",
+        name: "advanced",
         icon: "/icons/icon-advanced.svg",
-        pricePerMonth: "$12/mo",
-        pricePerYear: "$120/yr"
+        pricePerMonth: 12,
+        pricePerYear: 120
     },{
-        name: "Pro",
+        name: "pro",
         icon: "/icons/icon-pro.svg",
-        pricePerMonth: "$15/mo",
-        pricePerYear: "$150/yr"
+        pricePerMonth: 15,
+        pricePerYear: 150
     },
 ]
 
 export const addOnsData = [
     {
-        label: "onlineService",
-        name: "Online Service",
-        feature: "Access to multiplayer games",
-        price: "+$1/mo"
+        name: "online service",
+        description: "Access to multiplayer games",
+        pricePerMonth: 1,
+        pricePerYear: 10
     },
     {   
-        label: "largerStorage",
-        name: "Larger Storage",
-        feature: "Extra 1TB of cloud save",
-        price: "+$2/mo"
+        name: "larger storage",
+        description: "Extra 1TB of cloud save",
+        pricePerMonth: 2,
+        pricePerYear: 20
     },
     {
-        label: "customizableProfile",
-        name: "Customizable Profile",
-        feature: "Custom theme on your profile",
-        price: "+$3/mo"
+        name: "customizable profile",
+        description: "Custom theme on your profile",
+        pricePerMonth: 3,
+        pricePerYear: 30
     },
 ] as const

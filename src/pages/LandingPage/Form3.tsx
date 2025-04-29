@@ -1,29 +1,15 @@
 import AddOns from "./AddOns"
 import {addOnsData} from "../../data"
+import { useState } from "react"
 
-interface formDataProps{
-    name: string
-    email: string
-    phone: string
-    plan: string
-    addOns: string
-    checkOns: checkOnProps
 
-}
-
-interface checkOnProps{
-    onlineService: boolean
-    largerStorage: boolean
-    customizableProfile: boolean
-}
 
 
 interface Props{
-    formData: formDataProps
-    setFormData: (data: formDataProps) => void
+    inputProps: InputProps
 }
 
-export default function Form3({formData, setFormData}: Props){
+export default function Form3({inputProps}: Props){
     return(
         <div className="relative w-full  max-w-[500px] cursor-pointer">
             <h1 className=" text-3xl text-[#000080] font-bold mt-18">
@@ -36,11 +22,10 @@ export default function Form3({formData, setFormData}: Props){
                         return <AddOns 
                             key={index}
                             name={addOn.name} 
-                            feature={addOn.feature}
-                            price={addOn.price}
-                            label={addOn.label}
-                            formData={formData}
-                            setFormData={setFormData}
+                            description={addOn.description}
+                            pricePerMonth={addOn.pricePerMonth}
+                            pricePerYear={addOn.pricePerYear}
+                            inputProps={inputProps}                         
                         />
                     } )
                 }
