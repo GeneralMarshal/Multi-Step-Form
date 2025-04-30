@@ -5,6 +5,7 @@ interface TotalFormData{
     plan: Plan
     duration: Duration
     addOns: AddOns
+    totalCost: number
 
 }
 

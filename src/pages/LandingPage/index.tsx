@@ -16,7 +16,7 @@ export default function LandingPage(){
 
     const stepArray = ["your info", "select plan", "add-ons", "summary"]
 
-    const [currentStep, setCurrentStep] = useState(2)
+    const [currentStep, setCurrentStep] = useState(1)
     const [totalFormData, setTotalFormData] = useState<TotalFormData>({
         name: "",
         email: "",
@@ -27,7 +27,8 @@ export default function LandingPage(){
             "online service": false,
             "larger storage": false,
             "customizable profile": false
-        }
+        },
+        totalCost:0
     })
     
 
@@ -43,16 +44,20 @@ export default function LandingPage(){
     function errorValidation(){
         let newErrors={...totalErrors}
         let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+
         // form 1 error validation
+
         if (currentStep === 1){
+            // name validation
             totalFormData.name ? newErrors.name = "" : newErrors.name = "name is required"
+            // email validation
             totalFormData.email && totalFormData.email.match(pattern)  ? newErrors.email = "" : newErrors.email = "this email is invalid"
+            // phone number validation
             totalFormData.phone ? newErrors.phone = "" : newErrors.phone = "phone number is required"
             
             if( !newErrors.name && !newErrors.email && !newErrors.phone){
                 setCurrentStep(2)
             } else{
-                alert("Please complete the form")
                 setTotalErrors((prev)=>{ return {...prev, ...newErrors}})
             }
         }
@@ -62,12 +67,18 @@ export default function LandingPage(){
         if (currentStep === 2){
             setCurrentStep(3)
         }
-    }
-    function handlePrev(){
-        if(currentStep === 2){
-            setCurrentStep(1)
+        if (currentStep === 3){
+            setCurrentStep(4)
+        }
+        if(currentStep === 4 ){
+            setCurrentStep(5)
         }
     }
+
+    function handlePrev(){
+        setCurrentStep( prev => prev - 1 )
+    }
+
     function handleSubmit(){
         errorValidation()
         
@@ -95,6 +106,12 @@ export default function LandingPage(){
                 }
                 {
                     currentStep === 3 && <Form3 inputProps={inputProps} />
+                }
+                {
+                    currentStep === 4 && <Final inputProps={inputProps} />
+                }
+                {
+                    currentStep === 5 && <Modal />
                 }
                 <span className={`absolute ${currentStep === stepArray.length + 1? "hidden" : ""} max-w-[500px] bottom-0 flex justify-end w-full`} >
                     { currentStep === 1 ? "" :
