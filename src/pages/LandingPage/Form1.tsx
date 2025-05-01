@@ -9,8 +9,8 @@ export default function Form1 ({inputProps, errorProps}:Props){
     const {totalFormData, setTotalFormData} = inputProps
     const {totalErrors, setTotalErrors} = errorProps
     return(
-        <form className="relative w-full max-w-[500px]">
-            <h1 className=" text-3xl font-bold mt-18">
+        <form className="relative flex flex-col w-full max-w-[500px] lg:max-w-[500px]">
+            <h1 className=" text-3xl font-bold md:mt-18">
                 Personal Info
             </h1>
             <p className=" text-[#9699ab] mt-2 ">Please provide your name, email address, and phone number.</p>

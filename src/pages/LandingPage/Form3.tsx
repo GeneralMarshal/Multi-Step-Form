@@ -12,7 +12,7 @@ interface Props{
 export default function Form3({inputProps}: Props){
     return(
         <div className="relative w-full  max-w-[500px] cursor-pointer">
-            <h1 className=" text-3xl text-[#000080] font-bold mt-18">
+            <h1 className=" text-3xl text-[#000080] font-bold md:mt-18">
                 Pick add-ons
             </h1>
             <p className=" text-[#9699ab] mt-2 ">Add-ons help enhance your gaming experience.</p>

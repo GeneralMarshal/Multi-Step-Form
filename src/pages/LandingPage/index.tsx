@@ -16,7 +16,7 @@ export default function LandingPage(){
 
     const stepArray = ["your info", "select plan", "add-ons", "summary"]
 
-    const [currentStep, setCurrentStep] = useState(1)
+    const [currentStep, setCurrentStep] = useState(1 )
     const [totalFormData, setTotalFormData] = useState<TotalFormData>({
         name: "",
         email: "",
@@ -75,7 +75,10 @@ export default function LandingPage(){
     }
 
     function handlePrev(){
-        setCurrentStep( prev => prev - 1 )
+        if(currentStep > 1){
+            setCurrentStep( prev => prev - 1 )
+        }
+        
     }
 
     function handleSubmit(){
@@ -95,18 +98,22 @@ export default function LandingPage(){
     }
 
     return(
-        <div className="flex w-full h-full p-6">
-            <div className="relative flex-[35] w-full h-full rounded-3xl overflow-hidden ">
+        <div className="relative flex bg-blue-100 md:bg-white flex-col md:flex-row w-full h-full md:p-6">
+            <div className="relative  md:flex-[35] w-full h-[200px]  md:h-full md:rounded-3xl overflow-hidden ">
 
-                <img 
+                <picture>
+                    <source srcSet="/bg/bg-sidebar-mobile.svg" media="(max-width: 1024px)" />
+                    <img 
                     src="/bg/bg-sidebar-desktop.svg" 
                     alt="" 
-                    className="absolute object-cover object-bottom min-w-full min-h-full"
+                    className="absolute object-cover min-w-full min-h-full"
                 />
+                </picture>
+                
 
                 <VerticalSteps stepArray={stepArray} currentStep={currentStep}/>
             </div>
-            <div className=" relative flex  justify-center flex-[65%] w-full h-full ">
+            <div className="absolute md:relative flex  justify-center md:flex-[65%] w-[350px] sm:w-[400px] md:w-full h-auto md:h-full bg-white left-[50%] md:left-0 top-[15%] md:top-0 translate-x-[-50%] md:translate-x-0 rounded-xl md:rounded-0 p-6">
                 {
                     currentStep === 1 && <Form1 inputProps={inputProps} errorProps={errorProps} />
                 }
@@ -122,28 +129,32 @@ export default function LandingPage(){
                 {
                     currentStep === 5 && <Modal />
                 }
-                <span className={`absolute ${currentStep === stepArray.length + 1? "hidden" : ""} max-w-[500px] bottom-0 flex justify-end w-full`} >
-                    { currentStep === 1 ? "" :
-                        <Button stylesClass="absolute left-0 py-4 px-6 font-semibold  text-[#000080] rounded-md cursor-pointer" 
+                
+
+            </div>
+            <span className={`flex justify-center  absolute ${currentStep === stepArray.length + 1? "hidden" : ""} bottom-0  p-6  w-full md:w-[65%] md:right-0`} >
+                <span className="flex justify-between w-[350px] sm:w-[400px] md:w-[500px] md:right-0">
+                    
+                    <Button stylesClass=" left-0   py-4 px-6 font-semibold  text-[#000080] rounded-md cursor-pointer" 
                         onClick={
                             () => handlePrev()
                         }
                         >
-                            go Back
-                        </Button>
-                    }
-                    
+                            { currentStep === 1 ? "" : "go back"
+                            
+                            }
+                    </Button>
+                                        
                     <Button 
-                        stylesClass="py-4 px-6 font-semibold  bg-[#000080] text-[#ffffff] rounded-md cursor-pointer" 
+                        stylesClass=" py-4 px-6 font-semibold  bg-[#000080] text-[#ffffff] rounded-md cursor-pointer" 
                         onClick={
                             () => handleSubmit()
                         }   
                     >
                         {currentStep === stepArray.length ? "Confirm" : "Next Step"}
                     </Button>
-                </span>
-
-            </div>
+                </span>    
+            </span>
         </div>
     )
 }

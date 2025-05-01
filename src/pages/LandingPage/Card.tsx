@@ -13,7 +13,7 @@ export default function Card({inputProps, name, icon, pricePerMonth, pricePerYea
     
     return(
          <div 
-            className={`flex flex-col justify-between w-[130px] h-[150px] p-4 border border-solid rounded-lg cursor-pointer ${totalFormData.plan === name ? "border-blue-800 bg-[#f0f0f3]":"border-[#9699ab] bg-[#ffffff]"} `} 
+            className={`flex md:flex-col md:justify-between w-full md:w-[130px] md:h-[150px] p-4 gap-3 border border-solid rounded-lg cursor-pointer ${totalFormData.plan === name ? "border-blue-800 bg-[#f0f0f3]":"border-[#9699ab] bg-[#ffffff]"} `} 
             onClick={()=>{
                 setTotalFormData((prevData) => {
                     return{...prevData, plan: name as Plan }

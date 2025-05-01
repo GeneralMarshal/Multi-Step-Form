@@ -19,11 +19,11 @@ export default function Form2({inputProps}:Props){
     }
     return(
         <div className="relative w-full max-w-[500px]">
-            <h1 className=" text-3xl font-bold mt-18">
+            <h1 className=" text-3xl font-bold md:mt-18">
                 Select your plan
             </h1>
             <p className=" text-[#9699ab] mt-2 ">You have the option of monthly or yearly billing.</p>
-            <div className="flex flex-wrap justify-between mt-12 mb-8">
+            <div className="flex gap-4 md:gap-0 flex-wrap justify-between mt-12 mb-8">
                 
                 {
                     cardData.map((card, index)=>{

@@ -1,8 +1,8 @@
 export default function(){
     return(
-        <div className="flex flex-col justify-center text-center items-center relative w-full max-w-[500px]">
+        <div className="flex flex-col justify-center text-center items-center relative w-full max-w-[500px] py-14">
 
-            <img className=" h-32" src="/icons/icon-thank-you.svg" alt="" />
+            <img className="h-14 md:h-32" src="/icons/icon-thank-you.svg" alt="" />
             <h1 className=" text-3xl font-bold mt-6 text-[#000080]">
                 Thank you!
             </h1>

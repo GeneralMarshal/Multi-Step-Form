@@ -62,7 +62,7 @@ export default function Final({inputProps }:Props){
 
     return(
         <div className="relative w-full max-w-[500px]">
-            <h1 className=" text-3xl text-[#02075D] font-bold mt-18">
+            <h1 className=" text-3xl text-[#02075D] font-bold md:mt-18">
                 Finishing  up
             </h1>
             <p className=" text-[#9699ab] mt-2 ">Double-check everything looks OK before confirming.</p>
