@@ -6,6 +6,7 @@ interface Props{
     description: string
     pricePerMonth: number
     pricePerYear: number
+    
 
 }
 
@@ -30,6 +31,8 @@ export default function AddOns({inputProps, name, description, pricePerMonth, pr
                 type="checkbox" 
                 onChange={ (e)=>handleCheck(e)}
                 name={name}
+                checked={ totalFormData.addOns[name]}
+
             />
             <span className=" flex flex-col">
                 <span className=" text-[#000080] font-semibold">

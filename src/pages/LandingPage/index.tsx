@@ -6,7 +6,7 @@ import Form3 from "./Form3"
 import Final from "./Final"
 import Modal from "./Modal"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 // import { useState } from "react"
@@ -22,7 +22,7 @@ export default function LandingPage(){
         email: "",
         phone: "",
         plan: "arcade",
-        duration:"monthly",
+        duration:"yearly",
         addOns:{
             "online service": false,
             "larger storage": false,
@@ -37,6 +37,14 @@ export default function LandingPage(){
         email: "",
         phone: ""
     })
+
+    useEffect(()=>{
+        const savedFormData = localStorage.getItem("totalFormData")
+        if(savedFormData){
+            setTotalFormData(JSON.parse(savedFormData))
+        }
+    }, [])
+
 
     const inputProps = {totalFormData, setTotalFormData}
     const errorProps = {totalErrors, setTotalErrors}
@@ -63,16 +71,7 @@ export default function LandingPage(){
         }
             
         
-        // form 2 error validation
-        if (currentStep === 2){
-            setCurrentStep(3)
-        }
-        if (currentStep === 3){
-            setCurrentStep(4)
-        }
-        if(currentStep === 4 ){
-            setCurrentStep(5)
-        }
+        
     }
 
     function handlePrev(){
@@ -81,6 +80,16 @@ export default function LandingPage(){
 
     function handleSubmit(){
         errorValidation()
+        if (currentStep === 2){
+            setCurrentStep(3)
+        }
+        if (currentStep === 3){
+            setCurrentStep(4)
+        }
+        if(currentStep === 4 ){
+            setCurrentStep(5)
+            localStorage.setItem("totalFormData", JSON.stringify(totalFormData))
+        }
         
 
     }
@@ -95,7 +104,7 @@ export default function LandingPage(){
                     className="absolute object-cover object-bottom min-w-full min-h-full"
                 />
 
-                <VerticalSteps stepArray={stepArray}/>
+                <VerticalSteps stepArray={stepArray} currentStep={currentStep}/>
             </div>
             <div className=" relative flex  justify-center flex-[65%] w-full h-full ">
                 {

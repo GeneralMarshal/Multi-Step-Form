@@ -1,14 +1,10 @@
 import { useEffect } from "react"
-import { Button } from "../../components/Button"
 import { addOnsData } from "../../data"
 import { cardData } from "../../data"
 import { capitalize } from "../../utils/myFunctions"
 interface Props {
     inputProps: InputProps
 }
-
-type TotalBillarray = number[] 
-
 
 export default function Final({inputProps }:Props){
     const {totalFormData, setTotalFormData} = inputProps
@@ -25,7 +21,7 @@ export default function Final({inputProps }:Props){
     const suffix =  totalFormData.duration === "monthly" ? "/mo" : "/yr"
 
 
-    
+
     useEffect(() =>{
         function calcTotalBill(){
         var totalBill = 0
